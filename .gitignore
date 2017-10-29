@@ -26,3 +26,4 @@ _testmain.go
 coverage.sh
 coverage.out
 coverage.html
+.idea/

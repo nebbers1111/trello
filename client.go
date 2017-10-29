@@ -12,8 +12,9 @@ import (
 	"io/ioutil"
 	"net/http"
 	"time"
-
 	"github.com/pkg/errors"
+	"google.golang.org/appengine/urlfetch"
+	"golang.org/x/net/context"
 )
 
 const DEFAULT_BASEURL = "https://api.trello.com/1"
@@ -32,9 +33,9 @@ type logger interface {
 	Debugf(string, ...interface{})
 }
 
-func NewClient(key, token string) *Client {
+func NewClient(key, token string, ctx context.Context) *Client {
 	return &Client{
-		client:   http.DefaultClient,
+		client:   urlfetch.Client(ctx),
 		BaseURL:  DEFAULT_BASEURL,
 		Key:      key,
 		Token:    token,
