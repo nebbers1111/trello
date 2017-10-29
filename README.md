@@ -1,3 +1,7 @@
+## Fork Explanation
+For use with Google App Engine, the http.Client in client.go has been replaced with google.golang.org/appengine/urlfetch client
+
+
 Go Trello API
 ================
 
